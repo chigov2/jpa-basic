@@ -13,8 +13,7 @@ public class Course {
     private Long id;
     private String name;
 
-    protected Course() {
-    }
+    protected Course() { }
 
     public Course(String name) {
         this.name = name;

@@ -29,6 +29,8 @@ public class JpaBasicApplication implements CommandLineRunner {
 		//delete
 		//repository.deleteById(1001l);
 		repository.save(new Course("Microservices in 100 steps"));
+		repository.save(new Course("Angular in 100 steps"));
+		repository.save(new Course("CSS in 100 steps"));
 
 	}
 }

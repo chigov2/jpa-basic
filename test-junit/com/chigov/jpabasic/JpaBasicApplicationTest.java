@@ -11,8 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.swing.*;
-
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
@@ -36,7 +34,23 @@ public class JpaBasicApplicationTest {
     public void deleteById() {
         repository.deleteById(1003L);
         assertNull(repository.findById(1003L));
-        //assertEquals("JPA in 50 steps",course.getName());
+    }
 
+    @Test
+    @DirtiesContext
+    public void save() {
+        //get a course
+        Course course = repository.findById(1001L);
+        //check the name of the course
+        assertEquals("JPA in 50 steps",course.getName());
+
+        //update details
+        course.setName("JPA in 50 steps - Update");
+        repository.save(course);
+
+        //check the value
+        course = repository.findById(1001L);
+        assertEquals("JPA in 50 steps - Update", course.getName());
+        logger.info(course.getName());
     }
 }
