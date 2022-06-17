@@ -28,7 +28,7 @@ public class JpqlTest {
 
     @Test
     public void jpql() {
-        List resultList = em.createQuery("Select c From Course c").getResultList();
+        List resultList = em.createNamedQuery("query_get_all_courses").getResultList();
         logger.info("Select c From Course c -> {}",resultList);
         //Select c From Course c -> [Course{Web Services in 100 Steps'},
         // Course{Angular in 100 Steps- Updated'},
@@ -38,14 +38,14 @@ public class JpqlTest {
     }
     @Test
     public void jpql_typed() {
-        TypedQuery<Course> query = em.createQuery("Select c From Course c", Course.class);
+        TypedQuery<Course> query = em.createNamedQuery("query_get_all_courses", Course.class);
         List<Course> resultList = query.getResultList();
         logger.info("Select c From Course c -> {}",resultList);
         }
 
     @Test
     public void jpql_where() {
-        TypedQuery<Course> query = em.createQuery("Select c From Course c where name like '%90 steps'", Course.class);
+        TypedQuery<Course> query = em.createNamedQuery("query_get_90_courses", Course.class);
         List<Course> resultList = query.getResultList();
         logger.info("Select c From Course c where name like '%90 Steps' -> {}",resultList);
     }

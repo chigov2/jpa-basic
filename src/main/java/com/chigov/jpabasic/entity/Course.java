@@ -1,17 +1,28 @@
 package com.chigov.jpabasic.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
+@NamedQuery(name = "query_get_all_courses", query = "Select c From Course c")
+@NamedQuery(name = "query_get_90_courses",query = "Select c From Course c where name like '%90 steps'")
+//@Table(name = "CourseDetails")
 public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String name;
+
+    @CreationTimestamp
+    private LocalDateTime createdDate;
+
+    @UpdateTimestamp
+    private LocalDateTime lastUpdatedDate;
 
     protected Course() { }
 
