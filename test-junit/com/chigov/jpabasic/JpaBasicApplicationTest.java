@@ -53,4 +53,11 @@ public class JpaBasicApplicationTest {
         assertEquals("JPA in 50 steps - Update", course.getName());
         logger.info(course.getName());
     }
+
+    @Test
+    @DirtiesContext
+    public void playWithEntityManager() {
+
+        repository.playWithEntityManager();
+    }
 }
