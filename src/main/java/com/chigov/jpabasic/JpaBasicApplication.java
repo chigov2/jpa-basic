@@ -2,6 +2,7 @@ package com.chigov.jpabasic;
 
 import com.chigov.jpabasic.entity.Course;
 import com.chigov.jpabasic.repository.CourseRepository;
+import com.chigov.jpabasic.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class JpaBasicApplication implements CommandLineRunner {
 	@Autowired
-	private CourseRepository repository;
+	private CourseRepository courseRepository;
+	@Autowired
+	private StudentRepository studentRepository;
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -25,7 +28,7 @@ public class JpaBasicApplication implements CommandLineRunner {
 
 		//Course course = repository.findById(1001L); // refactor -> introduce variable ctrl + alt + v
 		//logger.info("Course 1001 -> {}",course);
-		repository.playWithEntityManager();
+		//repository.playWithEntityManager();
 
 		//delete
 		//repository.deleteById(1001l);
@@ -33,6 +36,8 @@ public class JpaBasicApplication implements CommandLineRunner {
 		//		repository.save(new Course("Microservices in 100 steps"));
 		//		repository.save(new Course("Angular in 100 steps"));
 		//		repository.save(new Course("CSS in 100 steps"));
+
+		studentRepository.saveStudentWithPassword();
 
 	}
 }
