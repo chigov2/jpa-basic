@@ -49,15 +49,12 @@ public class StudentRepositoryTest {
         repository.someMethodToUnderstandPersistenceContext();
     }
 
-//    private void dummy() {
-//        Student student = em.find(Student.class, 2001L);
-//        //persistence context - student
-//        Passport passport = student.getPassport();
-//        //persistence context - student + passport
-//        passport.setNumber("AI 635899");
-//        //persistence context - student + passport++
-//        student.setName("Peter->Update");
-//        //persistence context - student++ and passport++
-//    }
-
+    @Test
+    @Transactional
+    public void retrievePassportAndAssociatedStudent(){
+        Passport passport = em.find(Passport.class,4002L);
+        logger.info("passport 4002 found -> {}",passport);
+        Student student = passport.getStudent();
+        logger.info("student found -> {}",student);
+    }
 }
