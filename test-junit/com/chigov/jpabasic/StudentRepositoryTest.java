@@ -43,5 +43,21 @@ public class StudentRepositoryTest {
         Passport passport = student.getPassport();
         logger.info("passport found -> {}",passport);
     }
+    @Test
+    //@Transactional
+    public void test(){
+        repository.someMethodToUnderstandPersistenceContext();
+    }
+
+//    private void dummy() {
+//        Student student = em.find(Student.class, 2001L);
+//        //persistence context - student
+//        Passport passport = student.getPassport();
+//        //persistence context - student + passport
+//        passport.setNumber("AI 635899");
+//        //persistence context - student + passport++
+//        student.setName("Peter->Update");
+//        //persistence context - student++ and passport++
+//    }
 
 }
