@@ -72,7 +72,7 @@ public class CourseRepository {
 
     }
 
-    public void addReviewForCourse() {
+    public void addHardCodedReviewForCourse() {
         //1 получить курс для начала
         Course course = findById(1003L);
         List<Review> reviewsTest = course.getReviews();
@@ -97,5 +97,19 @@ public class CourseRepository {
 
         logger.info("1003 reviews -> {}",course.getReviews());
 
+    }
+
+    public void addReviewForCourse(Long courseId,List<Review> reviews) {
+
+        Course course = findById(courseId);
+        List<Review> reviewsTest = course.getReviews();
+        logger.info("1003 reviews -> {}",reviewsTest);
+
+        for (Review review : reviews){
+            course.addReviews(review);
+            review.setCourse(course);
+            em.persist(review);
+        }
+        logger.info("1003 reviews -> {}",course.getReviews());
     }
 }

@@ -1,6 +1,7 @@
 package com.chigov.jpabasic;
 
 import com.chigov.jpabasic.entity.Course;
+import com.chigov.jpabasic.entity.Review;
 import com.chigov.jpabasic.repository.CourseRepository;
 import com.chigov.jpabasic.repository.StudentRepository;
 import org.slf4j.Logger;
@@ -9,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class JpaBasicApplication implements CommandLineRunner {
@@ -26,19 +30,10 @@ public class JpaBasicApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		//Course course = repository.findById(1001L); // refactor -> introduce variable ctrl + alt + v
-		//logger.info("Course 1001 -> {}",course);
-		//repository.playWithEntityManager();
-
-		//delete
-		//repository.deleteById(1001l);
-
-		//		repository.save(new Course("Microservices in 100 steps"));
-		//		repository.save(new Course("Angular in 100 steps"));
-		//		repository.save(new Course("CSS in 100 steps"));
-
-		//studentRepository.saveStudentWithPassword();
-		courseRepository.addReviewForCourse();
+		List<Review> reviews = new ArrayList<>();
+		reviews.add(new Review("5"," Normal"));
+		reviews.add(new Review("5"," OK 2"));
+		courseRepository.addReviewForCourse(1003L,reviews);
 
 	}
 }
