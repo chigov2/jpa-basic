@@ -5,6 +5,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NamedQuery(name = "query_get_all_courses", query = "Select c From Course c")
@@ -17,6 +19,9 @@ public class Course {
     private Long id;
     @Column(nullable = false)
     private String name;
+
+    @OneToMany(mappedBy = "course")
+    private List<Review> reviews = new ArrayList<>();
 
     @CreationTimestamp
     private LocalDateTime createdDate;
@@ -40,6 +45,20 @@ public class Course {
 
     public Long getId() {
         return id;
+    }
+
+    public List<Review> getReviews() {return reviews;}
+
+    //не нужно, чтобы кто-то мог добавить через сеттер сет - надо по одному
+    //public void setReviews(List<Review> reviews) {
+    //this.reviews = reviews;
+    //}
+    public void addReviews(Review review) {
+        this.reviews.add(review);
+    }
+    //также добавить удаление
+    public void removeReview(Review review) {
+        this.reviews.remove(review);
     }
 
     @Override

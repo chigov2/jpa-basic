@@ -37,7 +37,8 @@ public class JpaBasicApplication implements CommandLineRunner {
 		//		repository.save(new Course("Angular in 100 steps"));
 		//		repository.save(new Course("CSS in 100 steps"));
 
-		studentRepository.saveStudentWithPassword();
+		//studentRepository.saveStudentWithPassword();
+		courseRepository.addReviewForCourse();
 
 	}
 }

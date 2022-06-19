@@ -1,6 +1,7 @@
 package com.chigov.jpabasic.repository;
 
 import com.chigov.jpabasic.entity.Course;
+import com.chigov.jpabasic.entity.Review;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 
 //CourseRepository' that could not be found - > missed @Repository
@@ -67,6 +69,33 @@ public class CourseRepository {
 //        course2.setName("Angular in 100 Steps- Updated");
 
         //em.refresh(course1);
+
+    }
+
+    public void addReviewForCourse() {
+        //1 получить курс для начала
+        Course course = findById(1003L);
+        List<Review> reviewsTest = course.getReviews();
+        logger.info("1003 reviews -> {}",reviewsTest);
+
+        //2 добавить 2 review 1003
+        //создаем
+        Review review1 = new Review("3","Course is OK");
+        Review review2 = new Review("4","Best!!!");
+
+        //setting the relationship
+        course.addReviews(review1);
+        //также надо ассоциировать ревью с курсом, т.к. ревью главный
+        review1.setCourse(course);
+
+        course.addReviews(review2);
+        review2.setCourse(course);
+
+        //3 save it to db
+        em.persist(review1);
+        em.persist(review2);
+
+        logger.info("1003 reviews -> {}",course.getReviews());
 
     }
 }

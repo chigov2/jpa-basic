@@ -50,7 +50,7 @@ public class StudentRepositoryTest {
     }
 
     @Test
-    @Transactional
+    //@Transactional
     public void retrievePassportAndAssociatedStudent(){
         Passport passport = em.find(Passport.class,4002L);
         logger.info("passport 4002 found -> {}",passport);

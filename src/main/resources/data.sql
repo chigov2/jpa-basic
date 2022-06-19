@@ -13,6 +13,6 @@ insert into student(id,name,passport_id) values(2001,'Mike Stoba',4001);
 insert into student(id,name,passport_id) values(2002,'Alex Afanasiev',4002);
 insert into student(id,name,passport_id) values(2003,'Lena Gerasymluik',4003);
 
-insert into review(id,rating, description) values(5001,'5','Great Course');
-insert into review(id,rating, description) values(5002,'5','Good job');
-insert into review(id,rating, description) values(5003,'4','OK');
+insert into review(id,rating, description,course_id) values(5001,'5','Great Course',1001);
+insert into review(id,rating, description,course_id) values(5002,'5','Good job',1001);
+insert into review(id,rating, description,course_id) values(5003,'4','Best Course!!',1003);
