@@ -56,5 +56,35 @@ public class StudentRepositoryTest {
         logger.info("passport 4002 found -> {}",passport);
         Student student = passport.getStudent();
         logger.info("student found -> {}",student);
+
+    }
+
+    @Test
+    @Transactional
+    public void retrieveStudentAndCourses(){
+    Student student = em.find(Student.class,2001L);
+    logger.info("student found -> {}",student);
+    logger.info("student courses -> {}",student.getCourses());
+    }
+
+    @Test
+    @Transactional
+    public void retrieveCoursesAndStudent(){
+        Course course = em.find(Course.class,1001L);
+        logger.info("course found -> {}",course);
+        logger.info("student courses found -> {}",course.getStudents());
+
+//        Student student = em.find(Student.class,2001L);
+//        logger.info("student found -> {}",student);
+//        logger.info("student courses -> {}",student.getCourses());
     }
 }
+
+
+
+
+
+
+
+
+

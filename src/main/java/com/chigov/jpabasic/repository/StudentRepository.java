@@ -1,5 +1,6 @@
 package com.chigov.jpabasic.repository;
 
+import com.chigov.jpabasic.entity.Course;
 import com.chigov.jpabasic.entity.Passport;
 import com.chigov.jpabasic.entity.Student;
 import org.slf4j.Logger;
@@ -58,5 +59,27 @@ public class StudentRepository {
         //persistence context - student + passport++
         student.setName("Peter->Update");
         //persistence context - student++ and passport++
+    }
+
+    public void insertHardcodedStudentAndCourse(){
+       Student student = new Student("Jack");
+       Course course = new Course("Microservices in 100 steps");
+       em.persist(student);
+       em.persist(course);
+
+       student.addCourse(course);
+       course.addStudent(student);
+
+       em.persist(student);
+    }
+
+    public void insertStudentAndCourse(Student student, Course course){
+        //student = new Student("Jack");
+        //Course course = new Course("Microservices in 100 steps");
+        student.addCourse(course);
+        course.addStudent(student);
+        em.persist(student);
+        em.persist(course);
+
     }
 }
