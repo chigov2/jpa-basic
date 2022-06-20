@@ -2,9 +2,9 @@ package com.chigov.jpabasic.entity;
 
 import javax.persistence.*;
 
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-
+@MappedSuperclass
+//@Entity
+//@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Employee {
 
     @Id

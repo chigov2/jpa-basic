@@ -1,8 +1,6 @@
 package com.chigov.jpabasic.repository;
 
-import com.chigov.jpabasic.entity.Course;
-import com.chigov.jpabasic.entity.Employee;
-import com.chigov.jpabasic.entity.Review;
+import com.chigov.jpabasic.entity.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +25,10 @@ public class EmployeeRepository {
         em.persist(employee);
     }
 
-    public List<Employee> retrieveAllEmployees(){
-        return em.createQuery("select p from Employee p",Employee.class).getResultList();
+    public List<PartTimeEmployee> retrievePartTimeEmployees(){
+        return em.createQuery("select p from PartTimeEmployee p", PartTimeEmployee.class).getResultList();
+    }
+    public List<FullTimeEmployee> retrieveFullTimeEmployees(){
+        return em.createQuery("select p from FullTimeEmployee p", FullTimeEmployee.class).getResultList();
     }
 }

@@ -41,8 +41,9 @@ public class JpaBasicApplication implements CommandLineRunner {
 		//studentRepository.insertHardcodedStudentAndCourse();
 		//studentRepository.insertStudentAndCourse(new Student("Mikee"),
 		//		new Course("Microservices in 100 steps"));
-		employeeRepository.insertEmployee(new FullTimeEmployee("Jack", new BigDecimal("1000")));
-		employeeRepository.insertEmployee(new PartTimeEmployee("Jim", new BigDecimal("50")));
-		logger.info("All employees ->{}",employeeRepository.retrieveAllEmployees());
+		//		employeeRepository.insertEmployee(new FullTimeEmployee("Jack", new BigDecimal("1000")));
+		//		employeeRepository.insertEmployee(new PartTimeEmployee("Jim", new BigDecimal("50")));
+		//		logger.info("Full Time employees ->{}",employeeRepository.retrieveFullTimeEmployees());
+		//		logger.info("Part Time employees ->{}",employeeRepository.retrievePartTimeEmployees());
 	}
 }
