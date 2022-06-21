@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import java.util.List;
@@ -89,5 +90,36 @@ public class JpqlTest {
         //Courses where students >=2 -> [Course{JPA in 50 steps'}]
     }
 
+    @Test
+    public void join() {
+      Query query = em.createQuery(
+                "Select c,s from Course c JOIN c.students s");
+        List<Object[]> resultList = query.getResultList();
+        logger.info("Result size -> {}",resultList.size());
+        for (Object[] result: resultList){
+            logger.info("Course {} Student {}",result[0],result[1]);
+        }
+    }
 
+    @Test
+    public void leftJoin() {
+        Query query = em.createQuery(
+                "Select c,s from Course c LEFT JOIN c.students s");
+        List<Object[]> resultList = query.getResultList();
+        logger.info("Result size -> {}",resultList.size());
+        for (Object[] result: resultList){
+            logger.info("Course {} Student {}",result[0],result[1]);
+        }
+    }
+
+    @Test
+    public void crossJoin() {
+        Query query = em.createQuery(
+                "Select c, s from Course c, Student s");
+        List<Object[]> resultList = query.getResultList();
+        logger.info("Result size -> {}",resultList.size());
+        for (Object[] result: resultList){
+            logger.info("Course {} Student {}",result[0],result[1]);
+        }
+    }
 }
