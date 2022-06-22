@@ -18,8 +18,7 @@ import javax.persistence.EntityManager;
 
 import java.util.Optional;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = JpaBasicApplication.class)
@@ -34,8 +33,9 @@ public class CourseRepositoryJpaTest {
 
     @Test
     public void findById() {
-        Optional<Course> byId = repository.findById(1001L);
-
+        Optional<Course> courseOptional = repository.findById(1001L);
+        //logger.info("{testtest}",courseOptional.isPresent());
+        assertTrue(courseOptional.isPresent());
     }
 
 
