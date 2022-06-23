@@ -33,17 +33,5 @@ public class JpaBasicApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		//List<Review> reviews = new ArrayList<>();
-		//reviews.add(new Review("5"," Normal"));
-		//reviews.add(new Review("5"," OK 2"));
-		//courseRepository.addReviewForCourse(1003L,reviews);
-
-		//studentRepository.insertHardcodedStudentAndCourse();
-		//studentRepository.insertStudentAndCourse(new Student("Mikee"),
-		//		new Course("Microservices in 100 steps"));
-		//		employeeRepository.insertEmployee(new FullTimeEmployee("Jack", new BigDecimal("1000")));
-		//		employeeRepository.insertEmployee(new PartTimeEmployee("Jim", new BigDecimal("50")));
-		//		logger.info("Full Time employees ->{}",employeeRepository.retrieveFullTimeEmployees());
-		//		logger.info("Part Time employees ->{}",employeeRepository.retrievePartTimeEmployees());
-	}
+			}
 }
