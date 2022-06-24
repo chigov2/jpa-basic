@@ -1,31 +1,14 @@
-insert into course(id,name,created_date,last_updated_date)
-values(1001,'JPA in 50 steps',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
-insert into course(id,name,created_date,last_updated_date)
-values(1002,'Spring boot in 90 steps',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
-insert into course(id,name,created_date,last_updated_date)
-values(1003,'Hibernate in 500 steps',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
-insert into course(id,name,created_date,last_updated_date)
-values(1004,'JPA in 50 steps - test',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
---insert into course(id,name,created_date,last_updated_date)
---values(1005,'Dummy2',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
---insert into course(id,name,created_date,last_updated_date)
---values(1006,'Dummy3',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
---insert into course(id,name,created_date,last_updated_date)
---values(1007,'Dummy4',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
---insert into course(id,name,created_date,last_updated_date)
---values(1008,'Dummy5',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
---insert into course(id,name,created_date,last_updated_date)
---values(1009,'Dummy6',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
---insert into course(id,name,created_date,last_updated_date)
---values(10010,'Dummy7',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
---insert into course(id,name,created_date,last_updated_date)
---values(10011,'Dummy8',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
---insert into course(id,name,created_date,last_updated_date)
---values(10012,'Dummy9',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
---insert into course(id,name,created_date,last_updated_date)
---values(10013,'Dummy10',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
---insert into course(id,name,created_date,last_updated_date)
---values(10014,'Dummy11',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
+insert into course(id,name,created_date,last_updated_date,is_deleted)
+values(1001,'JPA in 50 steps',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),false);
+
+insert into course(id,name,created_date,last_updated_date,is_deleted)
+values(1002,'Spring boot in 90 steps',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),false);
+
+insert into course(id,name,created_date,last_updated_date,is_deleted)
+values(1003,'Hibernate in 500 steps',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),false);
+
+insert into course(id,name,created_date,last_updated_date,is_deleted)
+values(1004,'JPA in 50 steps - test',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),false);
 
 insert into passport(id,number) values(4001,'AI 631234');
 insert into passport(id,number) values(4002,'PV 123497');

@@ -2,6 +2,7 @@ package com.chigov.jpabasic.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -12,6 +13,8 @@ import java.util.List;
 @Entity
 @NamedQuery(name = "query_get_all_courses", query = "Select c From Course c")
 @NamedQuery(name = "query_get_90_courses",query = "Select c From Course c where name like '%90 steps'")
+@Cacheable
+@SQLDelete(sql = "update course set is_deleted=true where id =?")
 //@Table(name = "CourseDetails")
 public class Course {
 
@@ -30,6 +33,8 @@ public class Course {
 
     @CreationTimestamp
     private LocalDateTime createdDate;
+
+    private boolean isDeleted;
 
     @UpdateTimestamp
     private LocalDateTime lastUpdatedDate;
