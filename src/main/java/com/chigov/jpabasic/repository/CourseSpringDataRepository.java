@@ -11,3 +11,5 @@ public interface CourseSpringDataRepository extends JpaRepository<Course,Long> {
     List<Course> findByName(String name);
     int countByName(String name);
 }
+
+
